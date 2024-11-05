@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+.gradient-border {
+  position: relative; /* Position relative to allow absolute positioning of the pseudo-element */
+  padding-bottom: 1px; /* Add space for the bottom border */
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; /* Height of the border */
+  background: linear-gradient(90deg, rgba(23, 43, 77, 0) 0%, #172B4D 49.54%, rgba(5, 68, 94, 0) 100%);
+}

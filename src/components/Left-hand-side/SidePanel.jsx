@@ -20,8 +20,8 @@ const SidePanel = () => {
 
 
     return (
-        <div className="w-64 h-full p-4 flex flex-col items-center ">
-          <div className="flex items-center gap-2 mb-7">
+        <div className="w-[20%] h-full p-4 flex flex-col items-center ">
+          <div className="flex items-center gap-2 mb-10 ml-[-15px] mt-[-3px]">
             <MenuIcon width={32} height={32} fill="#000" />
             <h2 className="font-extrabold text-[25px]">AlgoZenith</h2>
           </div>

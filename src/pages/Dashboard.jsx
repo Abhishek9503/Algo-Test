@@ -5,7 +5,7 @@ import ContentExplorer from '../components/Right-hand-side/ContentExplorer'
 
 const Dashboard = () => {
   return (
-    <div className='w-100 overflow-hidden flex gap-5'>
+    <div className='w-100 overflow-hidden flex'>
       <SidePanel/>
       <ContentExplorer/>
     </div>

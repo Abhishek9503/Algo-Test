@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-import { BellIcon, CalendarIcon, ChartBarIcon, ClockIcon, CopyIcon, InfoIcon } from "../../assets/icons";
-import Button from "../Button";
+import {
+  BellIcon,
+  CalendarIcon,
+  CharBarIconGradietn,
+  ChartBarIcon,
+  ClockIcon,
+  ClockIconGradient,
+  CopyIcon,
+  InfoIcon,
+  QuestionIcon,
+  TopArrowIcon,
+} from "../../assets/icons";
 
 const ContentExplorer = () => {
   const chapters = [
@@ -23,7 +33,8 @@ const ContentExplorer = () => {
           ],
         },
         {
-          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
+          title: "Part 2",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
@@ -34,10 +45,9 @@ const ContentExplorer = () => {
         },
       ],
     },
-
     {
       name: "Chapter 2",
-      time: "05:00:00",
+      time: "02:15:00",
       parts: [
         {
           title: "Part 1",
@@ -65,10 +75,9 @@ const ContentExplorer = () => {
         },
       ],
     },
-
     {
       name: "Chapter 3",
-      time: "02:30:46",
+      time: "02:15:00",
       parts: [
         {
           title: "Part 1",
@@ -85,8 +94,7 @@ const ContentExplorer = () => {
           ],
         },
         {
-          title: "Part 4",
-          heading: "Lorem Ipsum Dolor Sit Amet",
+          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
@@ -100,10 +108,11 @@ const ContentExplorer = () => {
 
     {
       name: "Chapter 4",
-      time: "06:00:00",
+      time: "02:15:00",
       parts: [
         {
-          title: "Part 1: Lorem Ipsum Dolor Sit Amet",
+          title: "Part 1",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
@@ -127,13 +136,15 @@ const ContentExplorer = () => {
         },
       ],
     },
+
 
     {
       name: "Chapter 5",
-      time: "03:00:00",
+      time: "02:15:00",
       parts: [
         {
-          title: "Part 1: Lorem Ipsum Dolor Sit Amet",
+          title: "Part 1",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
@@ -157,21 +168,31 @@ const ContentExplorer = () => {
         },
       ],
     },
-    // Add more chapters as needed
+
   ];
 
+  // State to track the selected chapter index
+  const [selectedChapterIndex, setSelectedChapterIndex] = useState(0);
+  const [expandedParts, setExpandedParts] = useState({});
   const [selected, setSelected] = useState("learning");
+
+  const togglePart = (partIndex) => {
+    setExpandedParts((prev) => ({
+      ...prev,
+      [partIndex]: !prev[partIndex], // Toggle the part's expanded state
+    }));
+  };
 
   return (
     <div className="w-[80%] overflow p-4 ">
       <div className="w-100 flex justify-end ">
-        <div className="flex  gap-2">
-          <div className=" flex items-center justify-center  ">
+        <div className="flex gap-2">
+          <div className="flex items-center justify-center">
             <div className="flex items-center justify-center h-[50px] w-[50px] bg-[#E7F8FF] ">
               <BellIcon width={25.6} height={22.4} fill="#000" />
             </div>
           </div>
-          <div class="w-[50px] h-[50px] bg-[#D9D9D9] rounded-full"></div>
+          <div className="w-[50px] h-[50px] bg-[#D9D9D9] rounded-full"></div>
         </div>
       </div>
 
@@ -204,15 +225,13 @@ const ContentExplorer = () => {
             </div>
           </div>
 
-          <div className="flex gap-2 items-center border rounded-md pt-3 pb-3 pl-4 pr-4  border-[#99E4FF]">
+          <div className="flex gap-2 items-center border rounded-md pt-3 pb-3 pl-4 pr-4 border-[#99E4FF]">
             <InfoIcon width={32} height={32} fill="#000" />
             <p className="text-[22px]">How it works</p>
           </div>
         </div>
 
-        <div className="w-100 h-[0.3px] bg-[#A4E6FF] ms-10 me-3 mb-[40px]">
-
-        </div>
+        <div className="w-100 h-[0.3px] bg-[#A4E6FF] ms-10 me-3 mb-[40px]"></div>
 
         <div className="flex">
           {/* Left Side: Chapter Navigation */}
@@ -220,80 +239,104 @@ const ContentExplorer = () => {
             <ul>
               {chapters.map((chapter, index) => (
                 <li key={index} className="mb-2">
-                  <button className="flex justify-between items-center px-4 py-3 bg-blue-50 rounded-md w-[342px] h-[82px]">
-                    <span className="text-[24px]">{chapter.name}</span>
-                  <div className="text-blue-500  flex gap-2">
-                     <ClockIcon  width={32} height={32} fill="#000"  />
-                     <p className="text-[22px]"> {chapter.time}</p>
-                
-                  </div>
+                  <button
+                    className={`flex justify-between items-center px-4 py-3 rounded-md w-[342px] h-[82px] ${
+                      selectedChapterIndex === index ? "bg-blue-50" : ""
+                    }`}
+                    onClick={() => setSelectedChapterIndex(index)} // Update selected chapter
+                  >
+                    <span  className={`text-[24px] ${
+                      selectedChapterIndex === index ? "font-semibold" : ""
+                    }`}>{chapter.name}</span>
+                    <div   className={`text-blue-500 flex gap-2  ${selectedChapterIndex === index ? '' : 'invisible'}`}>
+                      <ClockIcon width={32} height={32}  />
+                      <p className="text-[22px] text-blue-400"> {chapter.time}</p>
+                    </div>
                   </button>
+                  <div className={`gradient-border opacity-20  w-full h-[0.5px] ${selectedChapterIndex !== index ? '' : 'invisible'}`}></div>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Right Side: Chapter Content */}
-          <div className="w-[1002px] p-2 space-y-4 max-h-[650px] overflow-y-scroll scrollbar-hide">
-            {chapters.map((chapter, chapterIndex) => (
-              <div key={`chapter-${chapterIndex}`}>
-                {chapter.parts.map((part, partIndex) => (
-                  <div
-                    key={`part-${partIndex}`}
-                    className="border  rounded-lg shadow-xl mb-4"
-                  >
-                    <div className="border-b-8 border-blue-400 rounded-lg p-3">
-                      <div className=" flex justify-between items-center mb-2">
-                        <div className="">
-                          <h3 className="text-lg font-semibold">
-                            {part.title}
-                          </h3>
-                          <h3 className="text-lg font-semibold">
-                            {part?.heading}
-                          </h3>
-                        </div>
+          <div className="w-[1002px] p-2 space-y-4 max-h-[750px] overflow-y-scroll scrollbar-hide">
+            {/* Render content based on the selected chapter */}
+            {chapters[selectedChapterIndex].parts.map((part, partIndex) => (
+              <div
+                key={`part-${partIndex}`}
+                className="border rounded-lg shadow-md mb-4 cursor-pointer "
+                onClick={() => togglePart(partIndex)}
+              >
+                <div className="border-b-8 border-[#EFF5FF]  relative  rounded-lg p-3">
+                  <div className="flex justify-between items-center mb-2">
+                    <div className="">
+                      <h3 className="text-lg font-semibold">{part.title}</h3>
+                      <h3 className="text-lg font-semibold">{part?.heading}</h3>
+                    </div>
 
-                        <div className=" flex items-center gap-2 justify-between ">
-                          <span className="text-gray-500 flex items-center">
-                            <ClockIcon   width={27} height={27} fill="#000" />
-                            <p className="text-[24px] text-grey-400 "> {part.duration}</p>
-                          </span>
-                           <div className="flex items-center  gap-2">
-                           <ChartBarIcon  width={32} height={32} fill="#000" />
-                          <p className="text-sm text-gray-500">
-                            {part.difficulty} 
-                          </p>
-                           </div>
-                           <div className="flex items-center">
-                            <CopyIcon  width={32} height={32} fill="#000" />
-                           {part.items.length} items
-                           </div>
-                        </div>
+                    <div className=" w-[421px] h-[36px] flex items-center gap-2 justify-between">
+                      <span className="text-gray-500 flex gap-2 items-center">
+                        <ClockIconGradient  />
+                        <p className="text-[24px] text-gray-700">
+                          {part.duration}
+                        </p>
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <CharBarIconGradietn  />
+                        <p className="text-gray-700 text-[24px]">
+                          {part.difficulty}
+                        </p>
                       </div>
 
-                      {/* <div className="flex justify-end">
-                        <button className="border px-2 py-1 rounded-lg">
-                          {part.completedPercentage}% Completed
-                        </button>
-                      </div> */}
-                    </div>
-                    
-                    {/* Part Items */}
-                    <ul className="space-y-2 p-3">
-                      {part.items.map((item, itemIndex) => (
-                        <li
-                          key={`item-${itemIndex}`}
-                          className="flex justify-between items-center"
+                      <div className="flex  items-center gap-2">
+                        <CopyIcon width={32} height={32} fill="#000" />
+                        <p className="text-[24px] text-gray-700">{part.items.length}</p>
+                        <div
+                          className={`transition-transform ml-2 duration-300 ${
+                            expandedParts[partIndex] ? "rotate-180" : ""
+                          }`}
                         >
-                          <span>
-                            {item.type} {itemIndex + 1}
-                          </span>
-                          <span>{item.time}</span>
-                        </li>
+                          <TopArrowIcon width={29} height={16} fill="#000" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex  justify-end">
+                    <button className="border  px-2 py-1 rounded-lg bg-[#EFF5FF]">
+                      {part.completedPercentage}% Completed
+                    </button>
+                  </div>
+
+                  <div
+                    className={`absolute rounded-bl-lg  left-[-1px] bottom-[-8px] h-2 bg-[#172B4DD9]`}
+                    style={{ width: `${part.completedPercentage}%` }}
+                  ></div>
+                </div>
+                {expandedParts[partIndex] && ( // Conditionally render items
+                  <div className="p-3">
+                    <ul className="space-y-2 ">
+                      {part.items.map((item, itemIndex) => (
+                        <div className="ps-2 pe-3" key={`item-${itemIndex}`}>
+                          <li className="flex justify-between items-center h-20">
+                            <span className="flex items-center gap-2">
+                              <QuestionIcon
+                                width={32}
+                                height={32}
+                                fill="#000"
+                              />
+                             <p className="text-textDark  font-bold"> {item.type}: {item.name}</p>
+                            </span>
+                            <span className="text-textlight">{item.time}</span>
+                          </li>
+                          {itemIndex < part.items.length - 1 && (
+                            <div className="gradient-border w-full h-2"></div>
+                          )}
+                        </div>
                       ))}
                     </ul>
                   </div>
-                ))}
+                )}
               </div>
             ))}
           </div>
