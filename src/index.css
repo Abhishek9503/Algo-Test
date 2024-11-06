@@ -32,3 +32,29 @@ html{
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
+
+/* styles.css */
+.border-gradient {
+  position: relative;
+  z-index: 0;
+  background-color: transparent; /* Ensure background is transparent */
+}
+
+.border-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit; /* Match the button's border radius */
+  padding: 1px; /* Adjust this to control the thickness of the gradient border */
+  background: linear-gradient(104.1deg, #05445E -162.17%, #D2E3FF 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0); /* Mask to show only border */
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}

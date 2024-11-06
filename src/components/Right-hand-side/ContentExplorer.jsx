@@ -10,7 +10,17 @@ import {
   InfoIcon,
   QuestionIcon,
   TopArrowIcon,
+  CodeIcon,
+  PlayIcon,
 } from "../../assets/icons";
+
+const iconMapping = {
+  playIcon: PlayIcon,
+  questionIcon: QuestionIcon,
+  question: QuestionIcon,
+  codeIcon: CodeIcon,
+  copyIcon: CopyIcon,
+};
 
 const ContentExplorer = () => {
   const chapters = [
@@ -19,88 +29,366 @@ const ContentExplorer = () => {
       time: "05:00:00",
       parts: [
         {
-          title: "Part 1: ",
+          title: "PART 1: ",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
           items: [
-            { type: "Video", name: "Video 1", time: "10:00" },
-            { type: "Article", name: "Article 1", time: "10:00" },
-            { type: "Quiz", name: "Quiz 1", time: "10:00" },
-            { type: "Exercise", name: "Coding Exercise 1", time: "10:00" },
-            { type: "Resource", name: "Combined Resource 1", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
         {
-          title: "Part 2",
+          title: "PART 2",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
           items: [
-            { type: "Video", name: "Video 2", time: "10:00" },
-            { type: "Article", name: "Article 2", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
       ],
     },
     {
       name: "Chapter 2",
-      time: "02:15:00",
+      time: "05:00:00",
       parts: [
         {
-          title: "Part 1",
+          title: "PART 1: ",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
           items: [
-            { type: "Video", name: "Video 1", time: "10:00" },
-            { type: "Article", name: "Article 1", time: "10:00" },
-            { type: "Quiz", name: "Quiz 1", time: "10:00" },
-            { type: "Exercise", name: "Coding Exercise 1", time: "10:00" },
-            { type: "Resource", name: "Combined Resource 1", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
         {
-          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
+          title: "PART 2",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
           items: [
-            { type: "Video", name: "Video 2", time: "10:00" },
-            { type: "Article", name: "Article 2", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
+          ],
+        },
+        {
+          title: "PART 3",
+          heading: "Lorem Ipsum Dolor Sit Amet",
+          duration: "02:00:00",
+          difficulty: "Medium",
+          completedPercentage: 20,
+          items: [
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
       ],
     },
     {
       name: "Chapter 3",
-      time: "02:15:00",
+      time: "05:00:00",
       parts: [
         {
-          title: "Part 1",
+          title: "PART 1: ",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
           items: [
-            { type: "Video", name: "Video 1", time: "10:00" },
-            { type: "Article", name: "Article 1", time: "10:00" },
-            { type: "Quiz", name: "Quiz 1", time: "10:00" },
-            { type: "Exercise", name: "Coding Exercise 1", time: "10:00" },
-            { type: "Resource", name: "Combined Resource 1", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
         {
-          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
+          title: "PART 2",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
           items: [
-            { type: "Video", name: "Video 2", time: "10:00" },
-            { type: "Article", name: "Article 2", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
+          ],
+        },
+        {
+          title: "PART 3",
+          heading: "Lorem Ipsum Dolor Sit Amet",
+          duration: "02:00:00",
+          difficulty: "Medium",
+          completedPercentage: 20,
+          items: [
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
+          ],
+        },
+        {
+          title: "PART 4",
+          heading: "Lorem Ipsum Dolor Sit Amet",
+          duration: "02:00:00",
+          difficulty: "Medium",
+          completedPercentage: 20,
+          items: [
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
       ],
@@ -108,67 +396,134 @@ const ContentExplorer = () => {
 
     {
       name: "Chapter 4",
-      time: "02:15:00",
+      time: "05:00:00",
       parts: [
         {
-          title: "Part 1",
+          title: "PART 1: ",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
           items: [
-            { type: "Video", name: "Video 1", time: "10:00" },
-            { type: "Article", name: "Article 1", time: "10:00" },
-            { type: "Quiz", name: "Quiz 1", time: "10:00" },
-            { type: "Exercise", name: "Coding Exercise 1", time: "10:00" },
-            { type: "Resource", name: "Combined Resource 1", time: "10:00" },
-          ],
-        },
-        {
-          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
-          duration: "02:00:00",
-          difficulty: "Medium",
-          completedPercentage: 20,
-          items: [
-            { type: "Video", name: "Video 2", time: "10:00" },
-            { type: "Article", name: "Article 2", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
       ],
     },
-
 
     {
       name: "Chapter 5",
-      time: "02:15:00",
+      time: "05:00:00",
       parts: [
         {
-          title: "Part 1",
+          title: "PART 1: ",
           heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 45,
           items: [
-            { type: "Video", name: "Video 1", time: "10:00" },
-            { type: "Article", name: "Article 1", time: "10:00" },
-            { type: "Quiz", name: "Quiz 1", time: "10:00" },
-            { type: "Exercise", name: "Coding Exercise 1", time: "10:00" },
-            { type: "Resource", name: "Combined Resource 1", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
         {
-          title: "Part 2: Lorem Ipsum Dolor Sit Amet",
+          title: "PART 2",
+          heading: "Lorem Ipsum Dolor Sit Amet",
           duration: "02:00:00",
           difficulty: "Medium",
           completedPercentage: 20,
           items: [
-            { type: "Video", name: "Video 2", time: "10:00" },
-            { type: "Article", name: "Article 2", time: "10:00" },
+            {
+              type: "Video",
+              name: "Video 1",
+              time: "10:00",
+              iconType: "playIcon",
+            },
+            {
+              type: "Article",
+              name: "Article 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Quiz",
+              name: "Quiz 1",
+              time: "10:00",
+              iconType: "question",
+            },
+            {
+              type: "Exercise",
+              name: "Coding Exercise 1",
+              time: "10:00",
+              iconType: "codeIcon",
+            },
+            {
+              type: "Resource",
+              name: "Combined Resource 1",
+              time: "10:00",
+              iconType: "copyIcon",
+            },
           ],
         },
       ],
     },
-
   ];
 
   // State to track the selected chapter index
@@ -199,30 +554,31 @@ const ContentExplorer = () => {
       <div className="border rounded-lg p-3 mt-5">
         <div className="flex justify-between p-2 items-center">
           <div className="h-[82px] w-[563px] flex items-center justify-center rounded-lg bg-gradient-to-b from-[#EFF5FF] to-[rgba(239,245,255,0)]">
-            <div className="flex space-x-5">
-              <button
-                className={`flex items-center px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                  selected === "mentor" ? "bg-blue-50 shadow-md" : ""
-                }`}
-                onClick={() => setSelected("mentor")}
-              >
-                <span className="material-icons-outlined">
-                  <CalendarIcon width={32} height={32} fill="#000" />
-                </span>
-                <span className="ml-2 text-[22px]">Mentor Sessions</span>
-              </button>
-              <button
-                className={`flex items-center px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                  selected === "learning" ? "bg-blue-50 shadow-md" : ""
-                }`}
-                onClick={() => setSelected("learning")}
-              >
-                <span className="material-icons-outlined">
-                  <CalendarIcon width={32} height={32} fill="#000" />
-                </span>
-                <span className="ml-2 text-[22px]">Learning Material</span>
-              </button>
-            </div>
+          <div className="flex space-x-5">
+  <button
+    className={`flex items-center px-4 py-2 rounded-lg transition-colors duration-300 ${
+      selected === "mentor" ? "bg-blue-50 shadow-md border-gradient" : "border"
+    }`}
+    onClick={() => setSelected("mentor")}
+  >
+    <span className="material-icons-outlined">
+      <CalendarIcon width={32} height={32} fill="#000" />
+    </span>
+    <span className="ml-2 text-[22px]">Mentor Sessions</span>
+  </button>
+
+  <button
+    className={`flex items-center px-4 py-2 rounded-lg transition-colors duration-300 ${
+      selected === "learning" ? "bg-blue-50 shadow-md border-gradient" : "border"
+    }`}
+    onClick={() => setSelected("learning")}
+  >
+    <span className="material-icons-outlined">
+      <CalendarIcon width={32} height={32} fill="#000" />
+    </span>
+    <span className="ml-2 text-[22px]">Learning Material</span>
+  </button>
+</div>
           </div>
 
           <div className="flex gap-2 items-center border rounded-md pt-3 pb-3 pl-4 pr-4 border-[#99E4FF]">
@@ -245,15 +601,30 @@ const ContentExplorer = () => {
                     }`}
                     onClick={() => setSelectedChapterIndex(index)} // Update selected chapter
                   >
-                    <span  className={`text-[24px] ${
-                      selectedChapterIndex === index ? "font-semibold" : ""
-                    }`}>{chapter.name}</span>
-                    <div   className={`text-blue-500 flex gap-2  ${selectedChapterIndex === index ? '' : 'invisible'}`}>
-                      <ClockIcon width={32} height={32}  />
-                      <p className="text-[22px] text-blue-400"> {chapter.time}</p>
+                    <span
+                      className={`text-[24px] ${
+                        selectedChapterIndex === index ? "font-semibold" : ""
+                      }`}
+                    >
+                      {chapter.name}
+                    </span>
+                    <div
+                      className={`text-blue-500 flex gap-2  ${
+                        selectedChapterIndex === index ? "" : "invisible"
+                      }`}
+                    >
+                      <ClockIcon width={32} height={32} />
+                      <p className="text-[22px] text-blue-400">
+                        {" "}
+                        {chapter.time}
+                      </p>
                     </div>
                   </button>
-                  <div className={`gradient-border opacity-20  w-full h-[0.5px] ${selectedChapterIndex !== index ? '' : 'invisible'}`}></div>
+                  <div
+                    className={`gradient-border opacity-20  w-full h-[0.5px] ${
+                      selectedChapterIndex !== index ? "" : "invisible"
+                    }`}
+                  ></div>
                 </li>
               ))}
             </ul>
@@ -271,19 +642,19 @@ const ContentExplorer = () => {
                 <div className="border-b-8 border-[#EFF5FF]  relative  rounded-lg p-3">
                   <div className="flex justify-between items-center mb-2">
                     <div className="">
-                      <h3 className="text-lg font-semibold">{part.title}</h3>
+                      <h3 className="text-lg ">{part.title}</h3>
                       <h3 className="text-lg font-semibold">{part?.heading}</h3>
                     </div>
 
                     <div className=" w-[421px] h-[36px] flex items-center gap-2 justify-between">
                       <span className="text-gray-500 flex gap-2 items-center">
-                        <ClockIconGradient  />
+                        <ClockIconGradient />
                         <p className="text-[24px] text-gray-700">
                           {part.duration}
                         </p>
                       </span>
                       <div className="flex items-center gap-2">
-                        <CharBarIconGradietn  />
+                        <CharBarIconGradietn />
                         <p className="text-gray-700 text-[24px]">
                           {part.difficulty}
                         </p>
@@ -291,7 +662,9 @@ const ContentExplorer = () => {
 
                       <div className="flex  items-center gap-2">
                         <CopyIcon width={32} height={32} fill="#000" />
-                        <p className="text-[24px] text-gray-700">{part.items.length}</p>
+                        <p className="text-[24px] text-gray-700">
+                          {part.items.length}
+                        </p>
                         <div
                           className={`transition-transform ml-2 duration-300 ${
                             expandedParts[partIndex] ? "rotate-180" : ""
@@ -316,24 +689,34 @@ const ContentExplorer = () => {
                 {expandedParts[partIndex] && ( // Conditionally render items
                   <div className="p-3">
                     <ul className="space-y-2 ">
-                      {part.items.map((item, itemIndex) => (
-                        <div className="ps-2 pe-3" key={`item-${itemIndex}`}>
-                          <li className="flex justify-between items-center h-20">
-                            <span className="flex items-center gap-2">
-                              <QuestionIcon
-                                width={32}
-                                height={32}
-                                fill="#000"
-                              />
-                             <p className="text-textDark  font-bold"> {item.type}: {item.name}</p>
-                            </span>
-                            <span className="text-textlight">{item.time}</span>
-                          </li>
-                          {itemIndex < part.items.length - 1 && (
-                            <div className="gradient-border w-full h-2"></div>
-                          )}
-                        </div>
-                      ))}
+                      {part.items.map((item, itemIndex) => {
+                        // Get the relevant icon from the mapping, with a fallback if necessary
+                        const IconComponent = iconMapping[item.iconType];
+
+                        return (
+                          <div className="ps-2 pe-3" key={`item-${itemIndex}`}>
+                            <li className="flex justify-between items-center h-20">
+                              <span className="flex items-center gap-2">
+                                <IconComponent
+                                  width={32}
+                                  height={32}
+                                  fill="#000"
+                                />
+                                <p className="text-textDark font-bold">
+                                  {item.type}: {item.name}
+                                </p>
+                              </span>
+                              <span className="text-textlight flex  items-center gap-2">
+                                <ClockIcon width={32} height={32} fill="black" />
+                                <p className="text-[24px]">{item.time}</p>
+                              </span>
+                            </li>
+                            {itemIndex < part.items.length - 1 && (
+                              <div className="gradient-border w-full h-2"></div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}

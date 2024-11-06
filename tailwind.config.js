@@ -9,7 +9,7 @@ module.exports = {
     },
     
     colors: {
-      textlight: '#17384D', // Add your custom hex color here
+      textlight: '#17384D', 
       textDark:'#000000'
     },},
   },

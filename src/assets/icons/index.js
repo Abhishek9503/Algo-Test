@@ -15,6 +15,7 @@ export {default as  QuestionIcon} from "./QuestionIcon"
 export {default as  CodeIcon} from "./CodeIcon"
 export {default as  CharBarIconGradietn} from "./CharBarIconGradietn"
 export {default as  ClockIconGradient} from "./ClockIconGradient"
+export {default as PlayIcon}  from "./PlayOutline"
 
 
 
